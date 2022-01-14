@@ -2,18 +2,20 @@
 import cherrypy
 import os
 
+
 class MonSiteWeb(object):
     def __init__(self):
-        self.qs=Questions()
-        self.photos=Photos()
-        self.music=Music()
-        self.publis=Publis()
-        self.code=Code()
-        self.nv=NonViolence()
-        self.meta=Meta()
-#les pages peuvent etre des objets ou des méthodes de l'objet principal
+        self.qs = Questions()
+        self.photos = Photos()
+        self.music = Music()
+        self.publis = Publis()
+        self.code = Code()
+        self.nv = NonViolence()
+        self.meta = Meta()
+
+    # les pages peuvent etre des objets ou des méthodes de l'objet principal
     def index(self):
-        return '''
+        return """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
 <TITLE>The ꘏꘏�꘏꘏ website</TITLE>
@@ -32,14 +34,17 @@ class MonSiteWeb(object):
 contact : aurel.pere [at] gmail.com
 </BODY>
 </HTML>
-    '''
-    index.exposed=True
+    """
+
+    index.exposed = True
+
 
 class Questions(object):
     def __init__(self):
-        self.nom="page des questions"
+        self.nom = "page des questions"
+
     def index(self):
-        return '''
+        return """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
 <TITLE>The ꘏꘏�꘏꘏ website - la page des questions</TITLE>
@@ -52,15 +57,17 @@ Cette page est la page des questions.<br><br>
 [<a href="/">Retour</a>]
 </BODY>
 </HTML>
-    '''
-    index.exposed =True
+    """
+
+    index.exposed = True
 
 
 class Code(object):
     def __init__(self):
-        self.nom="page de code python"
+        self.nom = "page de code python"
+
     def index(self):
-        return '''
+        return """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
 <TITLE>The ꘏꘏�꘏꘏ website - la page des questions</TITLE>
@@ -101,14 +108,17 @@ Toute contribution est la bienvenue, notamment pour tester le programme sur des 
 [<a href="/">Retour</a>]
 </BODY>
 </HTML>
-    '''
-    index.exposed =True
+    """
+
+    index.exposed = True
+
 
 class Photos(object):
     def __init__(self):
-        self.nom="page des photos"
+        self.nom = "page des photos"
+
     def index(self):
-        return '''
+        return """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
 <TITLE>The ꘏꘏�꘏꘏ website - la page des photos</TITLE>
@@ -153,14 +163,17 @@ Cette page est la page des photos.<br><br>
 [<a href="/">Retour</a>]
 </BODY>
 </HTML>
-    '''
-    index.exposed =True
+    """
+
+    index.exposed = True
+
 
 class Music(object):
     def __init__(self):
-        self.nom="page de creation musicale"
+        self.nom = "page de creation musicale"
+
     def index(self):
-        return '''
+        return """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
 <TITLE>The ꘏꘏�꘏꘏ website - la page musique</TITLE>
@@ -172,14 +185,17 @@ vous trouverez un extrait de bidouillages musical ici : <a href=/fichiers/medley
 [<a href="/">Retour</a>]
 </BODY>
 </HTML>
-    '''
-    index.exposed=True
+    """
+
+    index.exposed = True
+
 
 class Publis(object):
     def __init__(self):
-        self.nom="page des publis"
+        self.nom = "page des publis"
+
     def index(self):
-        return '''
+        return """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
 <TITLE>The ꘏꘏�꘏꘏ website - la page des publis</TITLE>
@@ -229,14 +245,17 @@ NTIC apportent et comment cela influence ou interfère avec les différents éch
 [<a href="/">Retour</a>]
 </BODY>
 </HTML>
-    '''
-    index.exposed =True
+    """
+
+    index.exposed = True
+
 
 class NonViolence(object):
     def __init__(self):
-        self.nom="page non violence"
+        self.nom = "page non violence"
+
     def index(self):
-        return '''
+        return """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
 <TITLE>The ꘏꘏�꘏꘏ website - la page non violence</TITLE>
@@ -257,14 +276,17 @@ lien vers anv cop21 : <a href="https://anv-cop21.org">ici</a><br><br>
 [<a href="/">Retour</a>]
 </BODY>
 </HTML>
-    '''
-    index.exposed =True
+    """
+
+    index.exposed = True
+
 
 class Meta(object):
     def __init__(self):
-        self.nom="page meta politique"
+        self.nom = "page meta politique"
+
     def index(self):
-        return '''
+        return """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
 <TITLE>The ꘏꘏�꘏꘏ website - la page metapolitique</TITLE>
@@ -288,25 +310,28 @@ Vous y trouverez des ressources intéressantes sur des questions politiques.
 [<a href="/">Retour</a>]
 </BODY>
 </HTML>
-    '''
-    index.exposed =True
+    """
 
-site=MonSiteWeb()
-cherrypy.config.update({'environment': 'production',
-    'log.screen': True,
-    'log.error_file':'/home/kr1p/webapps/cherrypy/logerrors',                        
-    'tools.encode.encoding':'Utf-8',
-    'tools.staticdir.root':'/home/kr1p/webapps/cherrypy',
-    #'tools.sessions.on' = True,
-    #'tools.sessions.secure'=True,
-    #'tools.sessions.storage_type': "File",
-    #'tools.sessions.storage_path': '/home/kr1p/webapps/cherrypy/sessions',
-    #'tools.sessions.httponly=True,
-    #'tools.sessions.timeout'=10,
-    'server.socket_host': '127.0.0.1',
-    'server.socket_port': 25638})
-conf={'/fichiers':{'tools.staticdir.on':True,'tools.staticdir.dir':'fichiers'}}
-cherrypy.quickstart(site,config=conf)
+    index.exposed = True
 
 
-
+site = MonSiteWeb()
+cherrypy.config.update(
+    {
+        "environment": "production",
+        "log.screen": True,
+        "log.error_file": "/home/kr1p/webapps/cherrypy/logerrors",
+        "tools.encode.encoding": "Utf-8",
+        "tools.staticdir.root": "/home/kr1p/webapps/cherrypy",
+        #'tools.sessions.on' = True,
+        #'tools.sessions.secure'=True,
+        #'tools.sessions.storage_type': "File",
+        #'tools.sessions.storage_path': '/home/kr1p/webapps/cherrypy/sessions',
+        #'tools.sessions.httponly=True,
+        #'tools.sessions.timeout'=10,
+        "server.socket_host": "127.0.0.1",
+        "server.socket_port": 25638,
+    }
+)
+conf = {"/fichiers": {"tools.staticdir.on": True, "tools.staticdir.dir": "fichiers"}}
+cherrypy.quickstart(site, config=conf)
