@@ -23,10 +23,9 @@ from cherrypysite import launch_website
 
 class TestMonSiteWeb():
     "test class for cherrypy"
-    def __init__(self):
-        self.monsiteweb = MonSiteWeb()
     def test_index(self):
         "test index function for cherrypy"
+        self.monsiteweb = MonSiteWeb()
         assert self.monsiteweb.index()=="""
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
@@ -35,11 +34,11 @@ class TestMonSiteWeb():
 <BODY>
 <br>
 <ul>
-<li><a href=/qs>questions (im)pertinentes</a></li>
+<li><a href=/questions>questions (im)pertinentes</a></li>
 <li><a href=/photos>photos</a></li>
 <li><a href=/music>music</a></li>
 <li><a href=/publis>publis</a></li>
-<li><a href=/nv>non-violence</a></li>
+<li><a href=/nonviolence>non-violence</a></li>
 <li><a href=/code>code python</a></li>
 <li><a href=/meta>metapolitique</a></li>
 </ul>
@@ -49,10 +48,9 @@ contact : aurel.pere [at] gmail.com
 
 class TestQuestions():
     "test class for cherrypy"
-    def __init__(self):
-        self.questions = Questions()
     def test_index(self):
         "test index function for cherrypy"
+        self.questions = Questions()
         assert self.questions.index()=="""
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
@@ -69,10 +67,9 @@ Cette page est la page des questions.<br><br>
 
 class TestCode():
     "test class for cherrypy"
-    def __init__(self):
-        self.code = Code()
     def test_index(self):
         "test index function for cherrypy"
+        self.code = Code()
         assert self.code.index()=="""
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
@@ -117,10 +114,9 @@ Toute contribution est la bienvenue, notamment pour tester le programme sur des 
 
 class TestPhotos():
     "test class for cherrypy"
-    def __init__(self):
-        self.photos = Photos()
     def test_index(self):
         "test index function for cherrypy"
+        self.photos = Photos()
         assert self.photos.index()=="""
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
@@ -169,10 +165,9 @@ Cette page est la page des photos.<br><br>
 
 class TestMusic():
     "test class for cherrypy"
-    def __init__(self):
-        self.music = Music()
     def test_index(self):
         "test index function for cherrypy"
+        self.music = Music()
         assert self.music.index()=="""
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
@@ -188,10 +183,9 @@ vous trouverez un extrait de bidouillages musical ici : <a href=/fichiers/medley
 
 class TestPublis():
     "test class for cherrypy"
-    def __init__(self):
-        self.publis = Publis()
     def test_index(self):
         "test index function for cherrypy"
+        self.publis = Publis()
         assert self.publis.index()=="""
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
@@ -245,10 +239,9 @@ NTIC apportent et comment cela influence ou interfère avec les différents éch
 
 class TestNonViolence():
     "test class for cherrypy"
-    def __init__(self):
-        self.nonviolence = NonViolence()
     def test_index(self):
         "test index function for cherrypy"
+        self.nonviolence = NonViolence()
         assert self.nonviolence.index()=="""
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
@@ -273,10 +266,9 @@ lien vers anv cop21 : <a href="https://anv-cop21.org">ici</a><br><br>
 
 class TestMeta():
     "test class for cherrypy"
-    def __init__(self):
-        self.meta = Meta()
     def test_index(self):
         "test index function for cherrypy"
+        self.meta = Meta()
         assert self.meta.index()=="""
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <HTML>
@@ -348,11 +340,11 @@ def test_launchwebsite():
 <BODY>
 <br>
 <ul>
-<li><a href=/qs>questions (im)pertinentes</a></li>
+<li><a href=/questions>questions (im)pertinentes</a></li>
 <li><a href=/photos>photos</a></li>
 <li><a href=/music>music</a></li>
 <li><a href=/publis>publis</a></li>
-<li><a href=/nv>non-violence</a></li>
+<li><a href=/nonviolence>non-violence</a></li>
 <li><a href=/code>code python</a></li>
 <li><a href=/meta>metapolitique</a></li>
 </ul>
