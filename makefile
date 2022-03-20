@@ -4,9 +4,9 @@ install:
 format:
 	yapf -ir -vv --style pep8 .
 lint:
-	for i in *.py; do pylint --disable=R,C -sy $$i; done
+	for i in *.py; do pylint --disable=R,C --exit-zero $$i; done 
 test:
-	pytest -vv --cov=. *.py --cov-report xml:reports/coverage/coverage.xml
+	pytest -vv --cov=. *.py --cov-report xml:reports/coverage/coverage.xml 
 coverage_badge:
 	genbadge coverage
 git:
